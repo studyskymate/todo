@@ -1,0 +1,20 @@
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+     <div> <a href="www.studyskymate.com" class="navbar-brand"> Study Skymate</a></div>
+    
+     <ul class="navbar-nav">
+         <li>
+             <a *ngIf="hardcodedAuthentication.isUserAuthenticated()" routerLink="/todos" class="nav-link">Home</a></li>
+             <li>   <a *ngIf="hardcodedAuthentication.isUserAuthenticated()" routerLink="/todos" class="nav-link">Todo</a> </li>
+         
+     </ul>
+     <ul class="navbar-nav navbar-collapse justify-content-end">
+      <li>
+          <a *ngIf="!hardcodedAuthentication.isUserAuthenticated()" routerLink="/login" class="nav-link">Login</a>  </li>
+      <li> <a *ngIf="hardcodedAuthentication.isUserAuthenticated()" routerLink="/logout" class="nav-link">Logout</a>  </li>
+    
+  </ul>
+  </nav>
+
+</header>
