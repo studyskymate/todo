@@ -70,10 +70,10 @@ this.toDoDataService.deleteTodo('in28minutes',id).subscribe(
 
   updateTodo(id) {
     console.log(`update ${id}`)
-    this.router.navigate(['todos',id])
+    this.router.navigate(['todo',id])
   }
-
+ 
   addTodo() {
-    this.router.navigate(['todos',-1])
+    this.router.navigate(['todo',-1])
   }
 }
