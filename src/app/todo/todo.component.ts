@@ -28,8 +28,7 @@ export class TodoComponent implements OnInit {
 
   }
 
-
-  onSave():void{
+ onSave():void{
  if(this.id==-1){
   this.todoService.createTodo('dinesh',this.todo).subscribe(
     data=>{this.router.navigate(['todos'])}
