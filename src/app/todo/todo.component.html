@@ -1,5 +1,8 @@
 
 <div class="container">
+    <div class="alert alert-warning" *ngIf ="todoForm.dirty && todoForm.invalid">
+        Enter Valid Values
+    </div>
  <form (ngSubmit)="!todoForm.invalid && onSave()" #todoForm="ngForm">
 <fieldset class="form-group">
     <label>Description</label>
@@ -8,8 +11,12 @@
 
    <fieldset class="form-group">
     <label>Target Date</label>
-    <input type="date" [ngModel]="todo.targetDate |date : 'yyyy-MM-dd'" 
+    <input type="date" #targetDate="ngModel"  [ngModel]="todo.targetDate |date : 'yyyy-MM-dd'" 
     (ngModelChange)="todo.targetDate=$event" class="form-control" name="targetDate" required="required">
+
+    <div class="alert alert-warning" *ngIf ="todoForm.dirty && todoForm.invalid && targetDate.invalid">
+        Enter Valid Target Date
+    </div>
    </fieldset>
 
   <!-- <button type="submit" class="btn btn-success" (click)="onSave()" >Save</button>-->

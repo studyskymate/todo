@@ -20,12 +20,11 @@ export class TodoComponent implements OnInit {
     this.id=this.route.snapshot.params['id'];
     this.todo= new Todo(this.id,'','',false,new Date());
 
-    if(this.id!=-1){
+  if(this.id!=-1){
     this.todoService.retrieveTodo('dinesh',this.id).subscribe(
      data=> this.todo=data
     );
      }
-
   }
 
  onSave():void{
