@@ -42,4 +42,9 @@ export class TodoComponent implements OnInit {
     )
   }
 }
+
+onCancel():void{
+  this.router.navigate(['todos']);
+}
+
 }

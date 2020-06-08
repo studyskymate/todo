@@ -38,4 +38,23 @@ export class LoginComponent implements OnInit {
       this.invalidLogin=true
     }
   }
+
+  handleBasicAuthLogin(){
+    // console.log(this.username)
+
+   // if(this.username==='dinesh' && this.password==='kumar'){
+   this.authenticateService.authenticate(this.username,this.password).subscribe(
+     data=>{
+     console.log('data ' +data);
+     this.router.navigate(['welcome',this.router]);
+     this.invalidLogin=false;
+     },
+    error=>{
+       console.log(error);
+       this.invalidLogin=true;
+    }
+     
+   )
+    
+  }
 }

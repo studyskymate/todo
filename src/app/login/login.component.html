@@ -4,9 +4,10 @@
     <form>
 <div class="form-group" class="col-sm-4">
 User Name: <input type="text" class="form-control" name="username" [(ngModel)]="username">
-Password: <input type="password" class="form-control" name="password"[(ngModel)]="password">
+Password: <input type="password" class="form-control" name="password" [(ngModel)]="password">
 
-<button class="btn" (click) = logonAction() > Login </button>
+<!--<button class="btn" (click) = logonAction() > Login </button>-->
+<button class="btn" (click) = handleBasicAuthLogin() > Login </button>
 </div>  
 </form>
 </div>
