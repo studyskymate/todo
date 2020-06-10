@@ -23,9 +23,6 @@ export class WelcomeDataService {
   }
 
   executeServiceWithParam(name){
-    
-
- 
 
     alert('service executed');
     return this.http.get<HelloWorldBean[]>(`http://127.0.0.1:8080/hello-world/path-variable/${name}`,{headers:this.createHttpHeaders()});
