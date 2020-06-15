@@ -7,7 +7,10 @@ User Name: <input type="text" class="form-control" name="username" [(ngModel)]="
 Password: <input type="password" class="form-control" name="password" [(ngModel)]="password">
 
 <!--<button class="btn" (click) = logonAction() > Login </button>-->
-<button class="btn" (click) = handleBasicAuthLogin() > Login </button>
+<!-- <button class="btn" (click) = handleBasicAuthLogin() > Login </button>-->
+
+<button class="btn" (click) = handleJWTAuthLogin() > Login </button>
+
 </div>  
 </form>
 </div>

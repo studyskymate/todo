@@ -28,7 +28,9 @@ export class LoginComponent implements OnInit {
     // console.log(this.username)
 
    // if(this.username==='dinesh' && this.password==='kumar'){
-    if(this.authenticateService.authenticate(this.username,this.password)){
+  //  if(this.authenticateService.authenticate(this.username,this.password)){
+
+    if(this.authenticateService.jwtAuthenticate(this.username,this.password)){
 
     this.router.navigate(['welcome',this.router])
     this.invalidLogin=false
@@ -44,6 +46,26 @@ export class LoginComponent implements OnInit {
 
    // if(this.username==='dinesh' && this.password==='kumar'){
    this.authenticateService.authenticate(this.username,this.password).subscribe(
+     data=>{
+     console.log('data ' +data);
+     this.router.navigate(['welcome',this.router]);
+     this.invalidLogin=false;
+     },
+    error=>{
+       console.log(error);
+       this.invalidLogin=true;
+    }
+     
+   )
+    
+  }
+
+  
+  handleJWTAuthLogin(){
+    // console.log(this.username)
+
+   // if(this.username==='dinesh' && this.password==='kumar'){
+   this.authenticateService.jwtAuthenticate(this.username,this.password).subscribe(
      data=>{
      console.log('data ' +data);
      this.router.navigate(['welcome',this.router]);

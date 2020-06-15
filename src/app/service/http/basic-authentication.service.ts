@@ -37,6 +37,24 @@ authenticate(username , password){
   ;
 }
 
+
+jwtAuthenticate(username , password){
+  alert('service executed');
+  return this.http.post<any>(`${API_URL}/authenticate`,
+  {"username":username,
+    "password":password}
+  ).pipe(
+    map(
+      data=>{
+        sessionStorage.setItem(AUTHENTICATED_USER,username);
+        sessionStorage.setItem(TOKEN,`Bearer ${data.token}`);
+        return data;
+      }
+    )
+  )
+  ;
+}
+
 basicAuthHeaderString(){
   let username='user1';
   let password='password1';
