@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToDoDataService } from '../service/data/to-do-data.service';
 import { Router } from '@angular/router';
+import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
 
 
 export class Todo {
@@ -45,17 +46,24 @@ todos=[
   // }
   todos :Todo[];
   msgDelete='';
+ 
+  username='dinesh';
+  //sessionStorage.getItem(BasicAuthenticationService.AUTHENTICATED_USER,BasicAuthenticationService.username);
   constructor(private toDoDataService:ToDoDataService,
     private router:Router
-    ) { }
+  
+    ) {   }
 
   ngOnInit(): void {
+    
     this.refreshTodos();
-    
-    
+ 
   }
+
+
   refreshTodos() {
-    this.toDoDataService.retrieveAllTodos('dinesh').subscribe(
+   
+    this.toDoDataService.retrieveAllTodos(sessionStorage.getItem('authenticatedUser')).subscribe(
       response => {this.todos = response;}
     );
   }
