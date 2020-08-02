@@ -47,7 +47,7 @@ todos=[
   todos :Todo[];
   msgDelete='';
  
-  username='dinesh';
+  username=sessionStorage.getItem('authenticatedUser');
   //sessionStorage.getItem(BasicAuthenticationService.AUTHENTICATED_USER,BasicAuthenticationService.username);
   constructor(private toDoDataService:ToDoDataService,
     private router:Router
@@ -83,6 +83,6 @@ this.toDoDataService.deleteTodo(username,id).subscribe(
   }
  
   addTodo() {
-    this.router.navigate(['todo',-1])
+    this.router.navigate(['todo',-1,this.username])
   }
 }
