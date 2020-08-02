@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,9 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    $('button').click(function() { 
+      alert('Jqury executed'); 
+  }); 
   }
 
   logonAction(){

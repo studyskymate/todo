@@ -27,13 +27,15 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     MenuComponent,
     FooterComponent,
     LogoutComponent,
-    TodoComponent
+    TodoComponent,
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:HttpIntercepterBasicAuthService,multi:true

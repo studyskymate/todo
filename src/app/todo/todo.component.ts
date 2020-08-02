@@ -30,7 +30,8 @@ export class TodoComponent implements OnInit {
  onSave():void{
  if(this.id==-1){
   this.todoService.createTodo('dinesh',this.todo).subscribe(
-    data=>{this.router.navigate(['todos'])}
+    data=>{this.router.navigate(['todos']);
+    console.log('added');}
   )
  }else{
     this.todoService.updateTodo('dinesh',this.id,this.todo).subscribe(

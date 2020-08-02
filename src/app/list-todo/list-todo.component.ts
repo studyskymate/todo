@@ -68,9 +68,10 @@ todos=[
     );
   }
 
-deleteTodo(id): void{
-this.toDoDataService.deleteTodo('in28minutes',id).subscribe(
-  response => { this.msgDelete = 'Record Successfully Deleted with id'+id ,
+deleteTodo(username,id): void{
+this.toDoDataService.deleteTodo(username,id).subscribe(
+  response => { this.msgDelete = 'Record Successfully Deleted with id'+id ;
+  console.log("Delete success");
   this.refreshTodos(); }
 )
 } 
