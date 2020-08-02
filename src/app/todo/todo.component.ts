@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TodoComponent implements OnInit {
  id: number;
+ username: string;
  todo:Todo;
   constructor(private todoService: ToDoDataService,
     private route:ActivatedRoute,
@@ -18,10 +19,11 @@ export class TodoComponent implements OnInit {
 
   ngOnInit(): void {
     this.id=this.route.snapshot.params['id'];
-    this.todo= new Todo(this.id,'','',false,new Date());
+    this.username=this.route.snapshot.params['username'];
+    this.todo= new Todo(this.id,this.username,'',false,new Date());
 
   if(this.id!=-1){
-    this.todoService.retrieveTodo('dinesh',this.id).subscribe(
+    this.todoService.retrieveTodo( this.username,this.id).subscribe(
      data=> this.todo=data
     );
      }
@@ -29,12 +31,12 @@ export class TodoComponent implements OnInit {
 
  onSave():void{
  if(this.id==-1){
-  this.todoService.createTodo('dinesh',this.todo).subscribe(
+  this.todoService.createTodo( this.username,this.todo).subscribe(
     data=>{this.router.navigate(['todos']);
     console.log('added');}
   )
  }else{
-    this.todoService.updateTodo('dinesh',this.id,this.todo).subscribe(
+    this.todoService.updateTodo( this.username,this.id,this.todo).subscribe(
       data=>{
         console.log(data);
         this.router.navigate(['todos']);

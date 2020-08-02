@@ -57,7 +57,7 @@ todos=[
   ngOnInit(): void {
     
     this.refreshTodos();
- 
+    this.username=sessionStorage.getItem('authenticatedUser');
   }
 
 
