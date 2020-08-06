@@ -22,6 +22,7 @@ isUserAuthenticated(){
 }
 
 logout(){
-  sessionStorage.removeItem('authenticatedUser')
+  sessionStorage.removeItem('authenticatedUser');
+  console.log('Item Removed'+ sessionStorage.getItem('authenticatedUser'));
 }
 }
