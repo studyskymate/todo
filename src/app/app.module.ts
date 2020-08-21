@@ -18,6 +18,8 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { TutorialsComponent } from './tutorials/tutorials.component';
+
 
 @NgModule({
   declarations: [
