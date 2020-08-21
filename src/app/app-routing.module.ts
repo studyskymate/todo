@@ -12,7 +12,8 @@ import { TodoComponent } from './todo/todo.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'login',component:LoginComponent},
-  {path:'welcome',component:WelcomeComponent,canActivate:[RouteGuardService]},
+  {path:'#myCarousel',component:WelcomeComponent},
+  {path:'welcome',component:WelcomeComponent},
   {path:'welcome/:name',component:WelcomeComponent,canActivate:[RouteGuardService]},
   {path:'todos',component:ListTodoComponent,canActivate:[RouteGuardService]},
   {path:'logout',component:LoginComponent,canActivate:[RouteGuardService]},

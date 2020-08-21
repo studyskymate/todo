@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WelcomeDataService, HelloWorldBean } from '../service/data/welcome-data.service';
-
+import * as $ from 'jquery';
 
 
 @Component({
@@ -10,6 +10,7 @@ import { WelcomeDataService, HelloWorldBean } from '../service/data/welcome-data
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   name=''
   message=''
   //list=HelloWorldBean[];
@@ -20,7 +21,8 @@ export class WelcomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-  this.name= this.route.snapshot.params['name']
+  this.name= this.route.snapshot.params['name'];
+ 
   }
 
   getMessage():void{

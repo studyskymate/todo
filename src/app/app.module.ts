@@ -15,6 +15,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
 import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter-basic-auth.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { HttpIntercepterBasicAuthService } from './service/http/http-intercepter
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:HttpIntercepterBasicAuthService,multi:true
