@@ -7,6 +7,7 @@ import { ListTodoComponent } from './list-todo/list-todo.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { TodoComponent } from './todo/todo.component';
+import { TutorialsComponent } from './tutorials/tutorials.component';
 
 //create route to welcome
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'welcome',component:WelcomeComponent},
   {path:'welcome/:name',component:WelcomeComponent,canActivate:[RouteGuardService]},
   {path:'todos',component:ListTodoComponent,canActivate:[RouteGuardService]},
-  {path:'logout',component:LoginComponent,canActivate:[RouteGuardService]},
+  {path:'tutorials',component:TutorialsComponent,canActivate:[RouteGuardService]},
+  {path:'logout',component:LogoutComponent,canActivate:[RouteGuardService]},
   {path:'todo/:id',component:TodoComponent,canActivate:[RouteGuardService]},
   {path:'todo/:id/:username',component:TodoComponent,canActivate:[RouteGuardService]},
   {path:'**',component:ErrorComponent}

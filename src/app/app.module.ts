@@ -31,7 +31,8 @@ import { environment } from '../environments/environment';
     FooterComponent,
     LogoutComponent,
     TodoComponent,
- 
+    TutorialsComponent,
+
   ],
   imports: [
     BrowserModule,
