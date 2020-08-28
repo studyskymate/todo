@@ -23,9 +23,11 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    $('button').click(function() { 
-      alert('Jqury executed'); 
-  }); 
+
+  //  $('button').click(function() { 
+    //  alert('Jqury executed'); 
+  //}); 
+
   }
 
   logonAction(){
@@ -40,7 +42,6 @@ export class LoginComponent implements OnInit {
     this.invalidLogin=false
   }
     else{
-      alert('invalid');
       this.invalidLogin=true
     }
   }
@@ -71,7 +72,7 @@ export class LoginComponent implements OnInit {
    // if(this.username==='dinesh' && this.password==='kumar'){
    this.authenticateService.jwtAuthenticate(this.username,this.password).subscribe(
      data=>{
-     console.log('data ' +data);
+     console.log('Custom data ' +data);
      this.router.navigate(['welcome',this.router]);
      this.invalidLogin=false;
      },

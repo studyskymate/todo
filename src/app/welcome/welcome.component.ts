@@ -10,9 +10,9 @@ import * as $ from 'jquery';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  name=''
-  message=''
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1378/200`);
+  name='Welcome'
+  message='Welcome to Job Portal'
   //list=HelloWorldBean[];
   constructor(private route:ActivatedRoute,
     private welcomeDataService :WelcomeDataService

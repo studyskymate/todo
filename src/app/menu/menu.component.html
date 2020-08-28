@@ -1,21 +1,26 @@
 
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-     <div> <a href="www.studyskymate.com" class="navbar-brand"> Study Skymate</a></div>
+     <div> <a href="www.studyskymate.com" target="_blank" class="navbar-brand"> Jobs Portal</a></div>
     
+     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
      <ul class="navbar-nav">
          <li>
              <a *ngIf="hardcodedAuthentication.isUserAuthenticated()" routerLink="/todos" class="nav-link">Home</a></li>
              <li>   <a *ngIf="hardcodedAuthentication.isUserAuthenticated()" routerLink="/todos" class="nav-link">Todo</a> </li>
          
      </ul>
-     <ul class="navbar-nav navbar-collapse justify-content-end">
+     <ul class="navbar-nav  ml-auto">
       <li>
-          <a *ngIf="!hardcodedAuthentication.isUserAuthenticated()" routerLink="/login" class="nav-link">Login</a>  </li>
+    <a *ngIf="!hardcodedAuthentication.isUserAuthenticated()" routerLink="/login" class="nav-link">Login</a>  </li>
       <li> <a *ngIf="hardcodedAuthentication.isUserAuthenticated()" 
-        routerLink="/logout" class="nav-link">Logout</a>  </li>
+    routerLink="/logout" class="nav-link">Logout</a>  </li>
     
   </ul>
+  </div>
   </nav>
 
 </header>
