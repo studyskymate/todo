@@ -17,12 +17,12 @@ export class WelcomeComponent implements OnInit {
   constructor(private route:ActivatedRoute,
     private welcomeDataService :WelcomeDataService
     ) {
- 
+
    }
 
   ngOnInit(): void {
   this.name= this.route.snapshot.params['name'];
- 
+
   }
 
   getMessage():void{
