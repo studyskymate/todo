@@ -6,8 +6,9 @@
  <form (ngSubmit)="!todoForm.invalid && onSave()" #todoForm="ngForm">
 <fieldset class="form-group">
     <label>Description</label>
-    <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required">
-   </fieldset>
+    <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required" >
+   
+</fieldset>
 
    <fieldset class="form-group">
     <label>Target Date</label>

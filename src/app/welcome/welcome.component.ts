@@ -10,7 +10,7 @@ import * as $ from 'jquery';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/1379/150`);
   name=''
   message=''
   //list=HelloWorldBean[];

@@ -8,6 +8,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
 import { TodoComponent } from './todo/todo.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { UseraccountComponent } from './useraccount/useraccount.component';
+import { JobslistComponent } from './jobslist/jobslist.component';
 
 //create route to welcome
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path:'logout',component:LogoutComponent,canActivate:[RouteGuardService]},
   {path:'todo/:id',component:TodoComponent,canActivate:[RouteGuardService]},
   {path:'todo/:id/:username',component:TodoComponent,canActivate:[RouteGuardService]},
+  {path:'profile',component:UseraccountComponent,canActivate:[RouteGuardService]},
+  {path:'jobslist',component:JobslistComponent,canActivate:[RouteGuardService]},
   {path:'**',component:ErrorComponent}
 ];
 

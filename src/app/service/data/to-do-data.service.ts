@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Todo } from 'src/app/list-todo/list-todo.component';
 import { API_URL } from 'app.const';
+import { UserAccount } from 'src/app/useraccount/useraccount.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToDoDataService {
+  saveUser(user: UserAccount) {
+    return this.http.post(`${API_URL}/users/save`,user);
+  }
 
   constructor(private http:HttpClient) { }
 

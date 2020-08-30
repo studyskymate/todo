@@ -19,6 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TutorialsComponent } from './tutorials/tutorials.component';
+import { UseraccountComponent } from './useraccount/useraccount.component';
+import { JobslistComponent } from './jobslist/jobslist.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { TutorialsComponent } from './tutorials/tutorials.component';
     LogoutComponent,
     TodoComponent,
     TutorialsComponent,
+    UseraccountComponent,
+    JobslistComponent,
 
   ],
   imports: [
