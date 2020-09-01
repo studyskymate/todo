@@ -17,6 +17,7 @@ export class RouteGuardService implements CanActivate{
    return true;
   }
    else{
+     alert('Back to Login');
     this.router.navigate['login'];
      return false;
    }

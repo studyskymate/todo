@@ -7,6 +7,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserAccount {
   constructor(
     public id: number,
+    public username: String,
     public firstname: String,
     public lasttname: String,
     public contactNumber: String,
@@ -36,7 +37,7 @@ export class UseraccountComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.user=new UserAccount(null,'dinesh','kumar','',null,'a@email.com','','','','',null,'');
+    this.user=new UserAccount(null,'','dinesh','kumar','',null,'a@email.com','','','','',null,'');
   }
 
  

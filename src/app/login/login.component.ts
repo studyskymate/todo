@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   password=''
   errorMsg='Invalid credentials'
   invalidLogin=false;
- 
+  successmsg='dd';
   //Router
   //Dependency Injection
   //constructor(private router: Router,private hardcodedAS:HardcodedAuthenticationService) {
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.user=new UserAccount(null,'','','',null,'','','','','',null,'');
+    this.user=new UserAccount(null,'','','','',null,'','','','','',null,'');
   //  $('button').click(function() { 
     //  alert('Jqury executed'); 
   //}); 
@@ -95,7 +95,10 @@ export class LoginComponent implements OnInit {
   onRegisterSave():void{
     alert('saving');
     this.todoService.saveUser(this.user).subscribe(
-      data=>{ //this.router.navigate(['todos'] );
+      data=>{ 
+        alert("User Registered Sccessfully");
+        this.successmsg='Welcome success';
+        this.router.navigate(['login'] );
       console.log('added');}
     )
     }
