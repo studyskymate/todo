@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
 import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
 import * as $ from 'jquery';
+import { UserAccount } from '../useraccount/useraccount.component';
+import { ToDoDataService } from '../service/data/to-do-data.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,8 @@ import * as $ from 'jquery';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  username='dinesh'
+  user:UserAccount;
+  username=''
   password=''
   errorMsg='Invalid credentials'
   invalidLogin=false;
@@ -19,11 +21,14 @@ export class LoginComponent implements OnInit {
   //Router
   //Dependency Injection
   //constructor(private router: Router,private hardcodedAS:HardcodedAuthenticationService) {
-    constructor(private router: Router,private authenticateService:BasicAuthenticationService) {
+    constructor(private router: Router,private authenticateService:BasicAuthenticationService,
+      private todoService: ToDoDataService
+      ) {
    }
 
   ngOnInit(): void {
 
+    this.user=new UserAccount(null,'','','',null,'','','','','',null,'');
   //  $('button').click(function() { 
     //  alert('Jqury executed'); 
   //}); 
@@ -84,4 +89,14 @@ export class LoginComponent implements OnInit {
    )
     
   }
+
+//Register the user
+
+  onRegisterSave():void{
+    alert('saving');
+    this.todoService.saveUser(this.user).subscribe(
+      data=>{ //this.router.navigate(['todos'] );
+      console.log('added');}
+    )
+    }
 }
