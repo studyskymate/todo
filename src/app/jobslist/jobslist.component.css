@@ -1,10 +1,8 @@
-body{
+#bodyjobslist{
     background-color: #eee
 }
 
-:host {
-   background-color: #eee
-  }
+
 .card {
     border: none
 }
@@ -12,9 +10,9 @@ body{
 .btn-outline-dark {
     border-radius: 35px;
     font-size: 10px;
-    box-shadow: none
+    box-shadow: transparent;
 }
 
 .col-md-3 {
-    margin-top: 5px
+  margin-top: 5px;
 }
