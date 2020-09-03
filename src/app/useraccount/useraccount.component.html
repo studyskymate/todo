@@ -1,13 +1,20 @@
 <div class="container rounded bg-white mt-5 mb-5">
+   
     <form (ngSubmit)="!userForm.invalid && onSave()" #userForm="ngForm">
 
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <img class="rounded-circle mt-5" src="\assets\images\dk.JPG" style="width: 150px; height: auto;">
+                <img class="rounded-circle mt-5" [src]="url" style="width: 150px; height: auto;">
+
                 <span class="font-weight-bold">Amelly</span>
                 <span class="text-black-50">amelly12@bbb.com</span><span>
 
+
+                    <div>
+                        <input type="file"  (change)="onUpload($event)" name="image" id="image">
+                       
+                    </div>
 
                 </span></div>
         </div>

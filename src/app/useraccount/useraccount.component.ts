@@ -41,6 +41,20 @@ export class UseraccountComponent implements OnInit {
   }
 
  
+  //url="\assets\images\dk.JPG";
+  url="./assets/images/dk.JPG";
+
+
+  onUpload(e){
+if(e.target.files){
+
+  var reader=new FileReader();
+  reader.readAsDataURL(e.target.files[0]);
+  reader.onload=(event:any)=>{
+    this.url=event.target.result;
+  }
+}
+  }
 
   onSave():void{
 
