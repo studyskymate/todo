@@ -32,6 +32,7 @@ export class UserAccount {
 export class UseraccountComponent implements OnInit {
 
   user:UserAccount;
+  selectedFile :File=null;
   constructor(private todoService: ToDoDataService,
     private route:ActivatedRoute,
     private router:Router) { }
@@ -40,7 +41,13 @@ export class UseraccountComponent implements OnInit {
     this.user=new UserAccount(null,'','dinesh','kumar','',null,'a@email.com','','','','',null,'');
   }
 
- 
+  onFileSelect(event){
+    this.selectedFile=event.target.files[0];
+    console.log(event);
+  }
+  onUpload(){
+
+  }
 
   onSave():void{
 
