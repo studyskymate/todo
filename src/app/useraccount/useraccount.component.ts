@@ -31,29 +31,36 @@ export class UserAccount {
 })
 export class UseraccountComponent implements OnInit {
 
-  user:UserAccount;
-  selectedFile :File=null;
+  user: UserAccount;
   constructor(private todoService: ToDoDataService,
-    private route:ActivatedRoute,
-    private router:Router) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.user=new UserAccount(null,'','dinesh','kumar','',null,'a@email.com','','','','',null,'');
+    this.user = new UserAccount(null, '', 'dinesh', 'kumar', '', null, 'a@email.com', '', '', '', '', null, '');
   }
 
-  onFileSelect(event){
-    this.selectedFile=event.target.files[0];
-    console.log(event);
+
+  //url="\assets\images\dk.JPG";
+  url = "./assets/images/dk.JPG";
+
+  onUpload(e) {
+    if (e.target.files) {
+
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      }
+    }
   }
-  onUpload(){
 
+  onSave(): void {
+
+    this.todoService.saveUser(this.user).subscribe(
+      data => { //this.router.navigate(['todos'] );
+        console.log('added');
+      }
+    )
   }
-
-  onSave():void{
-
-     this.todoService.saveUser(this.user).subscribe(
-       data=>{ //this.router.navigate(['todos'] );
-       console.log('added');}
-     )
-     }
 }
