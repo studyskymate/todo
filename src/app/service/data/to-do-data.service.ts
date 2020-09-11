@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Todo } from 'src/app/list-todo/list-todo.component';
 import { API_URL } from 'app.const';
 import { UserAccount } from 'src/app/useraccount/useraccount.component';
+import { TodoResponse } from 'src/app/models/todo-response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,12 @@ export class ToDoDataService {
 
   retrieveAllTodos(username){
     return this.http.get<Todo[]>(`${API_URL}/users/${username}/todos`);
+  }
+
+  
+  
+  retrieveUserTodos(username,page,pagesize,sortField,sortDirection){
+    return this.http.get<TodoResponse>(`${API_URL}/users/${username}/todos/v2/${page}/${pagesize}?sortField=${sortField}&sortDirection=${sortDirection}`);
   }
 
   deleteTodo(username,id){

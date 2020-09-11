@@ -1,32 +1,50 @@
-
 <div class="container" style="margin: 20px;">
     <div class="alert alert-success" *ngIf='msgDelete'>{{msgDelete}}</div>
     <h3>Goals:</h3>
-<table class="table">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>username</th>
-            <th>Description</th>
-            <th>Is Completed?</th>
-            <th>Target Date</th>
-            <th>Update</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let todo of todos">
-            <td>{{todo.id}}</td>
-            <td>{{todo.username}}</td>
-            <td>{{todo.description}}</td>
-            <td>{{todo.done}}</td>
-            <td>{{todo.targetDate | date | uppercase}}</td>
-            <td> <button class="btn btn-success" (click)="updateTodo(todo.id)"> Update</button></td>
-            <td> <button class="btn btn-warning" (click)="deleteTodo(todo.username,todo.id)"> Delete</button></td>
-        </tr>
- 
-    </tbody>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>username</th>
+                <th>Description</th>
+                <th>Is Completed?</th>
+                <th>Target Date</th>
+                <th>Update</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let todo of todos">
+                <td>{{todo.id}}</td>
+                <td>{{todo.username}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.done}}</td>
+                <td>{{todo.targetDate | date | uppercase}}</td>
+                <td> <button class="btn btn-success" (click)="updateTodo(todo.id)"> Update</button></td>
+                <td> <button class="btn btn-warning" (click)="deleteTodo(todo.username,todo.id)"> Delete</button></td>
+            </tr>
+
+        </tbody>
     </table>
 
-    <div class="row"> <td> <button class="btn btn-success" (click)="addTodo()"> Add Todo</button></td></div>
+    <div class="row">
+        <td> </td>
+        <div class="col-md-3"> </div>
+        <div class="col-md-3">
+
+            <input type="number" name="page12" id="page12" value="1"  (change)="refreshTodos2(page+1)">
+
+   
+
+            <button *ngIf='page>1' class="btn" (click)="refreshTodos2(page-1)">
+                <<Back </button>
+                    <button *ngIf='page<5' class="btn" (click)="refreshTodos2(page+1)">Next>></button></div>
+
+
+
+    </div>
+
+    <div class="row">
+        <td> <button class="btn btn-success" (click)="addTodo()"> Add Todo</button></td>
+    </div>
 </div>

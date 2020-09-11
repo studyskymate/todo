@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
 
 
+
 export class Todo {
   constructor(
     public id: number,
@@ -14,6 +15,15 @@ export class Todo {
   ){
 
   }
+}
+
+export class TodoResponse1 {
+  public currentPage: number;
+  public sortDirection: String;
+  public sortField: String;
+  public todosList: Array<Todo>;
+  public totalItems: number;
+  public totalPages: number;
 }
 
 @Component({
@@ -45,8 +55,11 @@ todos=[
   //   description: 'Learn to Dance'
   // }
   todos :Todo[];
+  todoResponse: TodoResponse1;
   msgDelete='';
- 
+  page :number = 1;
+
+
   username=sessionStorage.getItem('authenticatedUser');
   //sessionStorage.getItem(BasicAuthenticationService.AUTHENTICATED_USER,BasicAuthenticationService.username);
   constructor(private toDoDataService:ToDoDataService,
@@ -56,18 +69,55 @@ todos=[
 
   ngOnInit(): void {
     
-    this.refreshTodos();
+   
     this.username=sessionStorage.getItem('authenticatedUser');
+
+/*
+    this.todoResponse.sortField='id';
+    this.todoResponse.sortDirection='desc';
+    this.todoResponse.currentPage=1;
+    this.todoResponse.totalItems=2;
+   
+*/
+this.refreshTodos2(1);
   }
 
 
-  refreshTodos() {
+  refreshTodos1() {
    
     this.toDoDataService.retrieveAllTodos(sessionStorage.getItem('authenticatedUser')).subscribe(
       response => {this.todos = response;}
     );
   }
 
+  refreshTodos() {
+    this.toDoDataService.retrieveUserTodos(sessionStorage.getItem('authenticatedUser'), this.todoResponse.currentPage, this.todoResponse.totalItems, this.todoResponse.sortField, this.todoResponse.sortDirection).subscribe(
+      response => {this.todoResponse = response;
+        this.todos=response.todosList;
+      }
+    )
+  }
+  refreshTodos2(page2:number) {
+
+    //this.page = this.page + 1;
+
+    this.toDoDataService.retrieveUserTodos(sessionStorage.getItem('authenticatedUser'), page2, 3, 'id','desc').subscribe(
+      response => {this.todoResponse = response;
+        this.page = response.currentPage;
+        console.log('res***'+response.sortDirection);
+        this.todos=response.todosList;
+      }
+    )
+  }
+
+  getUserTodos(page,pagesize,sortField,sortDirection) {
+    this.toDoDataService.retrieveUserTodos(sessionStorage.getItem('authenticatedUser'), page, pagesize, sortField, sortDirection).subscribe(
+      response => {this.todoResponse = response;
+        this.todos=response.todosList;
+      }
+    )
+  }
+  
 deleteTodo(username,id): void{
 this.toDoDataService.deleteTodo(username,id).subscribe(
   response => { this.msgDelete = 'Record Successfully Deleted with id'+id ;

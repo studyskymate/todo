@@ -1,3 +1,5 @@
+import { SeekerProfile } from './SeekerProfile-model'
+
 export class ExperienceDetail {
     id: BigInteger
     description: String
