@@ -4,7 +4,7 @@ import { SeekerSkillSet } from './SeekerSkillSet-model'
 
 export class SkillSet {
     id : BigInteger
-    jobPostSkillSets : List<JobPostSkillSet>
-    seekerSkillSets : List<SeekerSkillSet>
+    jobPostSkillSets : Array<JobPostSkillSet>
+    seekerSkillSets : Array<SeekerSkillSet>
     skillSetName : String
 }

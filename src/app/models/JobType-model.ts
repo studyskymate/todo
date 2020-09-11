@@ -1,5 +1,7 @@
+import { JobPost } from './job-post-model'
+
 export class JobType{
 id : BigInteger
-jobPosts : List<JobPost>
+jobPosts : Array<JobPost>
 jobType : String
 }
