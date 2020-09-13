@@ -3,9 +3,9 @@ import { ToDoDataService } from '../service/data/to-do-data.service';
 import { Router } from '@angular/router';
 import { BasicAuthenticationService } from '../service/http/basic-authentication.service';
 
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-
-export class Todo {
+export class Todo { 
   constructor(
     public id: number,
     public username: string,
@@ -22,9 +22,11 @@ export class TodoResponse1 {
   public sortDirection: String;
   public sortField: String;
   public todosList: Array<Todo>;
+  public recordPerPage: number =4;
   public totalItems: number;
   public totalPages: number;
 }
+
 
 @Component({
   selector: 'app-list-todo',
@@ -32,6 +34,9 @@ export class TodoResponse1 {
   styleUrls: ['./list-todo.component.css']
 })
 export class ListTodoComponent implements OnInit {
+  faCoffee = faCoffee;
+  pagetogo :number=1;
+
 
 /*
 todos = [
@@ -56,8 +61,11 @@ todos=[
   // }
   todos :Todo[];
   todoResponse: TodoResponse1;
+  
   msgDelete='';
   page :number = 1;
+
+ 
 
 
   username=sessionStorage.getItem('authenticatedUser');
@@ -108,7 +116,21 @@ this.refreshTodos2(1);
         this.todos=response.todosList;
       }
     )
-  }
+  } //refreshTodos3(page,'id','desc')
+
+  refreshTodos3(page2:number,recordsno,sortId,sortDirection) {
+
+    //this.page = this.page + 1;
+    console.log('res1***'+sortDirection);
+    console.log('pageNo***'+page2);
+    this.toDoDataService.retrieveUserTodos(sessionStorage.getItem('authenticatedUser'), page2, recordsno,sortId,sortDirection).subscribe(
+      response => {this.todoResponse = response;
+        this.page = response.currentPage;
+        console.log('res***'+response.sortDirection);
+        this.todos=response.todosList;
+      }
+    )
+  } 
 
   getUserTodos(page,pagesize,sortField,sortDirection) {
     this.toDoDataService.retrieveUserTodos(sessionStorage.getItem('authenticatedUser'), page, pagesize, sortField, sortDirection).subscribe(

@@ -5,6 +5,7 @@ export class TodoResponse {
     sortDirection: String
     sortField: String
     todosList: Array<Todo>
+     recordPerPage: number;
     totalItems: number
     totalPages: number
 }

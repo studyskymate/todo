@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { UseraccountComponent } from './useraccount/useraccount.component';
 import { JobslistComponent } from './jobslist/jobslist.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { JobslistComponent } from './jobslist/jobslist.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    FontAwesomeModule
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:HttpIntercepterBasicAuthService,multi:true

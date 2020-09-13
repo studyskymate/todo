@@ -1,16 +1,29 @@
 <div class="container" style="margin: 20px;">
     <div class="alert alert-success" *ngIf='msgDelete'>{{msgDelete}}</div>
-    <h3>Goals:</h3>
+    <h3>Goals : <fa-icon [icon]="faCoffee"></fa-icon>
+    </h3>
     <table class="table">
         <thead>
             <tr>
-                <th>id</th>
-                <th>username</th>
-                <th>Description</th>
-                <th>Is Completed?</th>
-                <th>Target Date</th>
-                <th>Update</th>
-                <th>Action</th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'id',todoResponse.sortDirection)"> id
+
+
+                    <i class="fa fa-arrows-v"></i>
+
+
+                </th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'username',todoResponse.sortDirection)">username
+                    <i class="fa fa-arrows-v"></i>
+                </th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'description',todoResponse.sortDirection)">
+                    Description <i class="fa fa-arrows-v"></i></th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'done',todoResponse.sortDirection)">Is
+                    Completed? <i class="fa fa-arrows-v"></i></th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'id',todoResponse.sortDirection)">Target Date
+                    <i class="fa fa-arrows-v"></i> </th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'targetDate',todoResponse.sortDirection)">Update
+                </th>
+                <th (click)="refreshTodos3(page,todoResponse.totalItems,'id',todoResponse.sortDirection)">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,20 +42,53 @@
 
     <div class="row">
         <td> </td>
-        <div class="col-md-3"> </div>
-        <div class="col-md-3">
 
-            <input type="number" name="page12" id="page12" value="1"  (change)="refreshTodos2(page+1)">
+        <div class="col-md-6">
 
-   
+            <input type="number" ref-pagetogo
+                (change)="refreshTodos3(this.pagetogo.value,todoResponse.recordPerPage,'username',todoResponse.sortDirection)">
+
+
 
             <button *ngIf='page>1' class="btn" (click)="refreshTodos2(page-1)">
                 <<Back </button>
-                    <button *ngIf='page<5' class="btn" (click)="refreshTodos2(page+1)">Next>></button></div>
+
+                    <button *ngIf='page<todoResponse.totalPages' class="btn"
+                        (click)="refreshTodos2(page+1)">Next>></button>
+
+                    <button (click)="refreshTodos3(1,todoResponse.totalItems,'id',todoResponse.sortDirection)"
+                        class="btn btn-success">
+                        Get All Records
+
+
+                        <i *ngIf='todoResponse.sortDirection == "asc"' class="fa fa-angle-double-up"></i>
+                        <i *ngIf='todoResponse.sortDirection == "desc"' class="fa fa-angle-double-down"></i>
+
+                    </button>
+
+        </div>
 
 
 
     </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+
+    Sort Field: {{todoResponse.sortField}} |
+    Sort Order: <i *ngIf='todoResponse.sortDirection == "asc"' class="fa fa-angle-double-down">Desc</i>
+    <i *ngIf='todoResponse.sortDirection == "desc"' class="fa fa-angle-double-up">Asc</i>|
+    Total Records: {{todoResponse.totalItems}} |
+    Total Pages: {{todoResponse.totalPages}} |
+    Record Per Page: {{todoResponse.recordPerPage}}
+
 
     <div class="row">
         <td> <button class="btn btn-success" (click)="addTodo()"> Add Todo</button></td>

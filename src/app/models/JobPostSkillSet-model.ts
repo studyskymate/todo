@@ -4,6 +4,6 @@ import { SkillSet } from './SkillSet-model'
 export class JobPostSkillSet {
     id: BigInteger
     jobPost: JobPost
-    skillLevel: BigInt
+    skillLevel: Number
     skillSet: SkillSet
 }
