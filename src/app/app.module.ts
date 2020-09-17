@@ -22,6 +22,7 @@ import { TutorialsComponent } from './tutorials/tutorials.component';
 import { UseraccountComponent } from './useraccount/useraccount.component';
 import { JobslistComponent } from './jobslist/jobslist.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CompanydetailComponent } from './companydetail/companydetail.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TutorialsComponent,
     UseraccountComponent,
     JobslistComponent,
+    CompanydetailComponent,
 
   ],
   imports: [

@@ -10,6 +10,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { UseraccountComponent } from './useraccount/useraccount.component';
 import { JobslistComponent } from './jobslist/jobslist.component';
+import { CompanydetailComponent } from './companydetail/companydetail.component';
 
 //create route to welcome
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'todo/:id/:username',component:TodoComponent,canActivate:[RouteGuardService]},
   {path:'profile',component:UseraccountComponent,canActivate:[RouteGuardService]},
   {path:'jobslist',component:JobslistComponent,canActivate:[RouteGuardService]},
-  {path:'**',component:ErrorComponent}
+  {path:'companydetail',component:CompanydetailComponent,canActivate:[RouteGuardService]},
+  {path:'**',component:ErrorComponent} 
 ];
 
 @NgModule({
