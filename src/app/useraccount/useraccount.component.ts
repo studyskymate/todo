@@ -37,7 +37,7 @@ export class UseraccountComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.user = new UserAccount(null, '', 'dinesh', 'kumar', '', null, 'a@email.com', '', '', '', '', null, '');
+    this.user = new UserAccount(2001,sessionStorage.getItem('authenticatedUser'), 'dinesh', 'kumar', '', null, 'a@email.com', '', '', '', '', null, '');
   }
 
 
