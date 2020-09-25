@@ -9,6 +9,11 @@ import { TodoResponse } from 'src/app/models/todo-response';
   providedIn: 'root'
 })
 export class ToDoDataService {
+
+  retrieveUserDetails(username){
+    return this.http.get<UserAccount>(`${API_URL}/jobs/users/fetch/${username}`);
+  }
+
   saveUser(user: UserAccount) {
     return this.http.post(`${API_URL}/users/save`,user);
   }
