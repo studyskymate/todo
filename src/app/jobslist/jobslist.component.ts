@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JobPost } from '../models/job-post-model';
+import { JobsServiceService } from '../service/data/jobs-service.service';
 
 
 export class Job{
@@ -30,12 +32,23 @@ export class JobslistComponent implements OnInit {
 };
   
 
+jobPostList: JobPost[];
 
 
-  constructor() { }
+  constructor(private jobsServiceService :JobsServiceService) { }
 
   ngOnInit(): void {
-   
+   this.fetchAllJobs();
+  }
+  
+
+  fetchAllJobs(){
+    this.jobsServiceService.fetchAllJobs().subscribe(
+      data=>{
+        this.jobPostList = data;
+        console.log(data.toString);
+      }
+    )
   }
 
 }
